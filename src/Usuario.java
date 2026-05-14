@@ -9,7 +9,7 @@ abstract class Usuario {
     protected Perfil perfil;
     private List<Usuario> amigos;
     private List<SolicitudAmistad> solicitudes;
-    private List<Publicacion> publicaciones;
+    private List<Contenido> publicaciones;
     private List<Notificacion> notificaciones;
     public abstract void interactuar();
 }

@@ -1,7 +1,6 @@
 class CreadorContenido extends Usuario {
 
     public void publicar(Contenido c) {
-
     }
     @Override
     public void interactuar() {
