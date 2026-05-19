@@ -1,0 +1,22 @@
+package InteraccionesUsuario;
+
+public class Follow extends InteraccionUsuario {
+
+    public Follow(Usuario emisor,
+                  Usuario receptor) {
+
+        super(emisor, receptor);
+    }
+
+    @Override
+    public void ejecutar() {
+
+        receptor.agregarAmigo(emisor);
+
+        System.out.println(
+                emisor.getUsername() +
+                        " comenzó a seguir a " +
+                        receptor.getUsername()
+        );
+    }
+}
