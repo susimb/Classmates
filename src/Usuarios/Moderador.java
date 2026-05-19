@@ -1,3 +1,5 @@
+package Usuarios;
+
 class Moderador extends Usuario {
     public void eliminarContenido(Contenido c) {
     }

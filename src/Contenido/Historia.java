@@ -1,3 +1,5 @@
+package Contenido;
+
 import java.time.LocalDateTime;
 
 class Historia extends Contenido {

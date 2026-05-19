@@ -1,3 +1,5 @@
+package Contenido;
+
 class Foto extends Contenido {
 
     private String resolucion;

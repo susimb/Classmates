@@ -1,3 +1,5 @@
+package Contenido;
+
 class Video extends Contenido {
 
     protected int duracion;
