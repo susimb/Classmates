@@ -1,7 +1,10 @@
 package Usuarios;
 
+import Contenido.Contenido;
+import Notificacion.Notificacion;
 import java.time.LocalDateTime;
 import java.util.*;
+
 
 public abstract class Usuario {
     protected UUID id;
@@ -74,8 +77,8 @@ public void publicar(Contenido contenido) {
     publicaciones.add(contenido);
 }
 //  Notificador
-@Override
-public void actualizar(Evento evento) {
+    @Override
+    public void actualizar(Evento evento) {
 
     if(evento == null) {
         return;

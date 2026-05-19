@@ -1,12 +1,34 @@
 package Usuarios;
 
-class CreadorContenido extends Usuario {
+public class CreadorContenido extends Usuario {
 
-    public void publicar(Contenido c) {
+    private int totalSeguidores;
+
+    public CreadorContenido(String username,
+                            String correo,
+                            String password) {
+
+        super(username, correo, password);
     }
+
     @Override
     public void interactuar() {
-        System.out.println("Publica contenido");
+
+        System.out.println(
+                getUsername() +
+                        " está creando contenido"
+        );
+    }
+    @Override
+    public boolean puedePublicar() {
+        return true;
+    }
+
+    public void aumentarSeguidores() {
+        totalSeguidores++;
+    }
+
+    public int getTotalSeguidores() {
+        return totalSeguidores;
     }
 }
-
