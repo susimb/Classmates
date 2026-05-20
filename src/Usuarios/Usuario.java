@@ -167,6 +167,32 @@ public boolean equals(Object o) {
 public int hashCode() {
     return Objects.hash(id);
 }
+@Override
+    public void agregarObservador(
+            Notificador Notificador) {
+
+        Notificadores.add(Notificador);
+    }
+
+    @Override
+    public void removerObservador(
+            Notificador Notificador) {
+
+        Notificadores.remove(Notificador);
+    }
+
+    @Override
+    public void notificar(
+            Evento evento) {
+
+        for(Notificador Notificador
+                : Notificadores) {
+
+            Notificadores.actualizar(
+                    evento
+            );
+        }
+    }
 
 // TOSTRING
 @Override
