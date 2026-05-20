@@ -1,10 +1,5 @@
 package InteraccionesContenido;
 
-package model.interaccion;
-
-import model.contenido.Contenido;
-import model.usuario.Usuario;
-
 public class Compartir
         extends InteraccionContenido {
 

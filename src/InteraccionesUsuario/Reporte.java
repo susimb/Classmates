@@ -2,9 +2,9 @@ package InteraccionesUsuario;
 
 public class Reporte {
     private String motivo;
-    Usuario emisor,
-    Contenido contenido,
-    String motivo) {
+    Usuario emisor;
+    Contenido contenido;
+    String motivo;) {
 
         super(emisor, contenido);
 
@@ -14,8 +14,7 @@ public class Reporte {
         public void ejecutar() {
 
             System.out.println(
-                    "Contenido reportado por: " +
-                            motivo
+                    "Contenido reportado por: " + motivo
             );
         }
     }
