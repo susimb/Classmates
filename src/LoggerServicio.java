@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class LoggerServicio {
+public class LoggerServicio implements Notificador {
     private ArrayList<Object> registros;
     public LoggerServicio() {
         registros = new ArrayList<>();
@@ -18,4 +18,14 @@ public class LoggerServicio {
                 System.out.println(registro);
             }
         }
+        @Override
+        public void actualizar(
+                Evento evento) {
+
+            System.out.println(
+                    "Log: " +
+                            evento.getMensaje()
+            );
+        }
+    }
     }

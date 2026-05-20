@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class ModeracionServicio {
+public class ModeracionServicio implements Notificador{
 
     private Set<Usuario> usuariosSuspendidos;
 
@@ -46,4 +46,12 @@ public class ModeracionServicio {
 
         return usuariosSuspendidos.contains(usuario);
     }
+    @Override
+        public void actualizar(
+                Evento evento) {
+
+            System.out.println(
+                    "Moderación recibió evento"
+            );
+        }
 }

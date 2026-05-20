@@ -1,4 +1,4 @@
-public class NotificacionServicio {
+public class NotificacionServicio implements Notificador {
     @Override
         public void actualizar(Evento evento) {
             System.out.println(
