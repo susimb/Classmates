@@ -1,0 +1,22 @@
+public class NotificacionServicio {
+    @Override
+        public void actualizar(Evento evento) {
+            System.out.println(
+                    "Nuevo evento recibido: " +
+                            evento.getMensaje()
+            );
+        }
+        public void enviarNotificacion(
+                Usuario usuario,
+                Notificacion notificacion) {
+
+            usuario.getNotificaciones()
+                    .add(notificacion);
+
+            System.out.println(
+                    "Notificación enviada a " +
+                            usuario.getUsername()
+            );
+        }
+    }
+
