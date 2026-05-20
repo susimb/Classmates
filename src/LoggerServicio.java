@@ -1,5 +1,7 @@
+import java.util.ArrayList;
+
 public class LoggerServicio {
-    private List<Registro> registros;
+    private ArrayList<Object> registros;
     public LoggerServicio() {
         registros = new ArrayList<>();
         }
@@ -11,7 +13,7 @@ public class LoggerServicio {
         }
         public void mostrarHistorial() {
 
-            for(Registro registro : registros) {
+            for(Object registro : registros) {
 
                 System.out.println(registro);
             }
