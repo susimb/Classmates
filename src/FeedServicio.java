@@ -1,3 +1,4 @@
+import java.util.List;
 public class FeedServicio {
         private FeedStrategy strategy;
 
