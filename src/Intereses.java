@@ -1,7 +1,9 @@
+import java.util.ArrayList;
+
 public class Intereses {
     private List<Contenido> contenidos;
 
-    public FeedIntereses(
+    public Intereses(
             List<Contenido> contenidos) {
 
         this.contenidos = contenidos;
