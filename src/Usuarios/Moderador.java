@@ -1,5 +1,7 @@
 package Usuarios;
 
+import Contenido.Contenido;
+
 public class Moderador extends Usuario {
 
     private int contenidosEliminados;

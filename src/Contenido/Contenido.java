@@ -26,6 +26,9 @@ public abstract class Contenido {
         this.likes = new HashSet<>();
     }
 
+    protected Contenido() {
+    }
+
     public void agregarLike(Usuario usuario) {
         likes.add(usuario);
     }

@@ -4,7 +4,7 @@ class Video extends Contenido {
 
     protected int duracion;
     @Override
-    public void reproducir() {
+    public void mostrar() {
         System.out.println("Reproduciendo video");
     }
 }

@@ -2,6 +2,7 @@ package Usuarios;
 
 import Contenido.Contenido;
 import Notificacion.Notificacion;
+import Notificacion.PreferenciasNotificacion;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -116,13 +117,13 @@ public Perfil getPerfil() {
 public Set<Usuario> getAmigos() {
     return Collections.unmodifiableSet(amigos);
 
-public List<Contenido> getPublicaciones() {
+List<Contenido> getPublicaciones() {
         return Collections.unmodifiableList(publicaciones);
     }
-public Queue<Notificacion> getNotificaciones() {
+Queue<Notificacion> getNotificaciones() {
         return notificaciones;
     }
-public PreferenciasNotificacion getPreferencias() {
+PreferenciasNotificacion getPreferencias() {
         return preferencias;
     }
 }

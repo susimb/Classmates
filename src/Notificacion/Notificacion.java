@@ -21,8 +21,7 @@ public class Notificacion {
 
         this.leida = false;
     }
-
-    public void marcarComoLeida() {
+    public void Leida() {
         leida = true;
     }
 }

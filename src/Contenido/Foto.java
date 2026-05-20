@@ -6,7 +6,7 @@ class Foto extends Contenido {
     private String formato;
 
     @Override
-    public void reproducir() {
+    public void mostrar() {
         System.out.println("Mostrando foto");
     }
 }

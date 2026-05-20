@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class PreferenciasNotificacion {
-    private Set<TipoNotificacion> permitidas;
+    private final Set<TipoNotificacion> permitidas;
 
     public PreferenciasNotificacion() {
 
