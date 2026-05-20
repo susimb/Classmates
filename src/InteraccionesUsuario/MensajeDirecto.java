@@ -1,9 +1,5 @@
 package InteraccionesUsuario;
 
-package model.interaccion;
-
-import model.usuario.Usuario;
-
 public class MensajeDirecto extends InteraccionUsuario {
     private String mensaje;
     public MensajeDirecto(
