@@ -1,5 +1,9 @@
 package Contenido;
 
+import Excepciones.ComentarioVacio;
+import Excepciones.LikeDuplicado;
+import Excepciones.OperacionInvalida;
+import Excepciones.UsuarioNoEncontrado;
 import InteraccionesContenido.Comentario;
 import Usuarios.Usuario;
 

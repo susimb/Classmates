@@ -35,4 +35,9 @@ public class Cronologico
 
         return feed;
     }
+
+    @Override
+    public List<Contenido> generar(Usuario usuario) {
+        return List.of();
+    }
 }

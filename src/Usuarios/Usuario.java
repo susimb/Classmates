@@ -1,6 +1,8 @@
 package Usuarios;
 
 import Contenido.Contenido;
+import Excepciones.ContenidoNoEncontrado;
+import Excepciones.PerfilIncompleto;
 import Notificacion.Notificacion;
 import Notificacion.PreferenciasNotificacion;
 import Notificador;
