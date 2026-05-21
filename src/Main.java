@@ -4,21 +4,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // =========================
-        // SERVICIOS
-        // =========================
+        LoggerServicio logger =
+                new LoggerServicio();
 
-        LoggerService logger =
-                new LoggerService();
+        NotificacionServicio notificacionServicio =
+                new NotificacionServicio();
 
-        NotificationService notificationService =
-                new NotificationService();
+        ModeracionServicio moderacionServicio =
+                new ModeracionServicio();
 
-        ModerationService moderationService =
-                new ModerationService();
-
-        RecommendationService recommendationService =
-                new RecommendationService(
+        RecomendacionServicio RecomendationServicio =
+                new RecommendacionServicio(
                         new RecomendacionPopularidad()
                 );
 
@@ -91,7 +87,7 @@ public class Main {
         );
 
         reel.agregarObservador(
-                moderationService
+                moderacionServicio
         );
 
         // =========================
@@ -120,7 +116,7 @@ public class Main {
         // MODERACIÓN
         // =========================
 
-        moderationService.reportarContenido(
+        moderacionServicio.reportarContenido(
                 reel,
                 verificado,
                 "Contenido sospechoso"
@@ -166,7 +162,7 @@ public class Main {
         // RECOMENDACIONES
         // =========================
 
-        recommendationService
+        RecomendationServicio
                 .recomendarContenido(
                         creador
                 );
