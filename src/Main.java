@@ -48,43 +48,27 @@ public class Main {
                 "Ana siguió a Carlos"
         );
 
-        Contenido reel =
-                ContenidoFactory.crearContenido(
-                        TipoContenido.REEL,
+        Contenido foto =
+                CreadorContenido.crearContenido(
+                        TipoContenido.FOTO,
                         CREADOR,
-                        "Mi primer Reel"
+                        "Hola!"
                 );
-
-        Contenido podcast =
-                ContenidoFactory.crearContenido(
-                        TipoContenido.PODCAST,
-                        verificado,
-                        "Podcast Tecnología"
-                );
-
-        // =========================
-        // OBSERVER
-        // =========================
-
-        reel.agregarObservador(
-                notificationService
+        foto.agregarNotificador(
+                notificacionServicion
         );
 
-        reel.agregarObservador(
-                logger
+        foto.agregarNotificador(
+                loggerServicio
         );
 
-        reel.agregarObservador(
-                moderacionServicio
+        foto.agregarNotificador(
+                ModeracionServicio
         );
 
-        // =========================
-        // PUBLICACIONES
-        // =========================
+        CREADOR.publicar(foto);
 
-        CREADOR.publicar(reel);
-
-        verificado.publicar(podcast);
+        verificado.publicar(video);
 
         logger.registrar(
                 "Usuarios publicaron contenido"
