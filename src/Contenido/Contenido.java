@@ -63,6 +63,10 @@ public abstract class Contenido {
 
         likes.add(usuario);
     }
+    public Usuario getAutor() {
+
+        return autor;
+    }
 
     public void agregarObservador(Notificador notificador) {
 
