@@ -62,17 +62,14 @@ public void eliminarAmigo(Usuario usuario) {
 
 
 public void publicar(Contenido contenido) {
-
-    if(!puedePublicar()) {
-        throw new OperacionInvalidaException(
-                "Este tipo de usuario no puede publicar"
-        );
-    }
-
-    if(perfil == null || !perfil.estaCompleto()) {
-        throw new OperacionInvalidaException(
-                "Debe completar el perfil antes de publicar"
-        );
+    if(perfil == null ||
+                !perfil.estaCompleto()) {
+            throw new PerfilIncompleto();
+        }
+        if(contenido == null) {
+            throw new ContenidoNoEncontrado();
+        }
+        publicaciones.add(contenido);
     }
 
     publicaciones.add(contenido);
