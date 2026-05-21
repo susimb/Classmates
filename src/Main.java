@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -74,55 +75,36 @@ public class Main {
                 "Usuarios publicaron contenido"
         );
 
-        // =========================
-        // INTERACCIONES
-        // =========================
-
-        reel.agregarLike(verificado);
+        foto.agregarLike(verificado);
 
         logger.registrar(
                 "Carlos dio like"
         );
 
-        // =========================
-        // MODERACIÓN
-        // =========================
-
         moderacionServicio.reportarContenido(
-                reel,
+                video,
                 verificado,
-                "Contenido sospechoso"
+                "Contenido Reportado"
         );
-
-        // =========================
-        // FEED
-        // =========================
 
         List<Contenido> contenidos =
                 new ArrayList<>();
 
-        contenidos.add(reel);
+        contenidos.add(foto);
 
-        contenidos.add(podcast);
-
-        FeedService feedService =
-                new FeedService(
-                        new FeedPopularidad(
+        FeedServicio feedServicio =
+                new FeedServicio(
+                        new Amigos(
                                 contenidos
                         )
                 );
 
         List<Contenido> feed =
-                feedService.generarFeed(
+                feedServicio.generarFeed(
                         CREADOR
                 );
-
-        // =========================
-        // MOSTRAR FEED
-        // =========================
-
         System.out.println(
-                "\n===== FEED ====="
+                "FEED"
         );
 
         for(Contenido contenido : feed) {
@@ -130,31 +112,18 @@ public class Main {
             contenido.mostrar();
         }
 
-        // =========================
-        // RECOMENDACIONES
-        // =========================
-
         RecomendacionServicio
                 .recomendarContenido(
                         CREADOR
                 );
-
-        // =========================
-        // HISTORIAL
-        // =========================
-
         System.out.println(
-                "\n===== LOGS ====="
+                "LOGS"
         );
 
         logger.mostrarHistorial();
 
-        // =========================
-        // FIN
-        // =========================
-
         System.out.println(
-                "\nSistema ejecutado correctamente."
+                "Sistema ejecutado correctamente."
         );
     }
 }
