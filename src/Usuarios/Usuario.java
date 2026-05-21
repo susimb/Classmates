@@ -41,19 +41,12 @@ public abstract boolean puedePublicar();
 
 // FUNCIONALIDADES GENERALES
 public void agregarAmigo(Usuario usuario) {
-
     if(usuario == null) {
-        throw new OperacionInvalidaException(
-                "El usuario no puede ser null"
-        );
-    }
-
-    if(this.equals(usuario)) {
-        throw new OperacionInvalidaException(
-                "No puedes agregarte a ti mismo"
-        );
-    }
-
+        throw new UsuarioNoEncontrado();
+        }
+        if(usuario.equals(this)) {
+            throw new FollowInvalido();
+        }
     amigos.add(usuario);
 }
 public void eliminarAmigo(Usuario usuario) {
