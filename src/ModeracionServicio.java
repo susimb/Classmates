@@ -1,3 +1,5 @@
+import Usuarios.Usuario;
+
 import java.util.HashSet;
 import java.util.Set;
 

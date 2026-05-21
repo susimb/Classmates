@@ -1,3 +1,6 @@
+import Notificacion.Notificacion;
+import Usuarios.Usuario;
+
 public class NotificacionServicio implements Notificador {
     @Override
         public void actualizar(Evento evento) {

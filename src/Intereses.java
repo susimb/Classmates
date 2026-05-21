@@ -1,7 +1,9 @@
+import Contenido.Contenido;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Intereses implements EstrategiaFeed {
+public class Intereses implements OrdenFeed {
 
     private List<Contenido> contenidos;
 

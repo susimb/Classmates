@@ -1,3 +1,7 @@
+import Usuarios.Usuario;
+
+import java.util.List;
+
 public class ReporteServicio {
     public void exportarUsuarios(
                 List<Usuario> usuarios) {
