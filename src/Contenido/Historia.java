@@ -1,9 +1,12 @@
 package Contenido;
 
-import java.time.LocalDateTime;
+import Usuarios.Usuario;
 
 public class Historia extends Contenido {
-    private LocalDateTime expiracion;
+    public Historia(Usuario autor) {
+        super(autor);
+    }
+
     @Override
     public void mostrar() {
         System.out.println("Mostrando historia");

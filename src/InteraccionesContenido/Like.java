@@ -1,6 +1,5 @@
 package InteraccionesContenido;
 
-
 import Contenido.Contenido;
 import Usuarios.Usuario;
 

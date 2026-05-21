@@ -1,10 +1,12 @@
 import Contenido.Contenido;
+import Evento.Evento;
+import Notificador.Notificador;
 import Usuarios.Usuario;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class ModeracionServicio implements Notificador{
+public class ModeracionServicio implements Notificador {
 
     private Set<Usuario> usuariosSuspendidos;
 

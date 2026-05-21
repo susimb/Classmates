@@ -1,6 +1,6 @@
 package Usuarios;
 
-public class CuentaVerificada extends CreadorContenido {
+public class CuentaVerificada extends CreadorContenidoUsuario {
     private String insignia;
     private boolean verificada;
 

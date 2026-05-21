@@ -1,4 +1,6 @@
+import Evento.Evento;
 import Notificacion.Notificacion;
+import Notificador.Notificador;
 import Usuarios.Usuario;
 
 public class NotificacionServicio implements Notificador {

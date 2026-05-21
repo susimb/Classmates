@@ -1,3 +1,8 @@
+package Notificacion;
+
+import Evento.Evento;
+import Notificador.Notificador;
+
 public interface NotificacionesInterfaz {
 
     void agregarNotificador(

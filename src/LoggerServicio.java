@@ -1,3 +1,7 @@
+import Evento.Evento;
+import Notificador.Notificador;
+import Notificador.Registro;
+
 import java.util.ArrayList;
 
 public class LoggerServicio implements Notificador {

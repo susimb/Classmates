@@ -1,12 +1,12 @@
 package Usuarios;
 
-public class CreadorContenido extends Usuario {
+public class CreadorContenidoUsuario extends Usuario {
 
     private int totalSeguidores;
 
-    public CreadorContenido(String username,
-                            String correo,
-                            String password) {
+    public CreadorContenidoUsuario(String username,
+                                   String correo,
+                                   String password) {
 
         super(username, correo, password);
     }

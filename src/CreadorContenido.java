@@ -5,7 +5,6 @@ import Contenido.Foto;
 import Contenido.Video;
 import Contenido.Historia;
 
-
 public class CreadorContenido {
     public static Contenido crearContenido(
             TipoContenido tipo,
@@ -16,9 +15,9 @@ public class CreadorContenido {
                 return new Foto(
                         autor,
                         titulo
-                    );
+                );
 
-                case VIDEO:
+            case VIDEO:
                     return new Video(
                             autor,
                             titulo
@@ -27,8 +26,7 @@ public class CreadorContenido {
                 case HISTORIA:
 
                     return new Historia(
-                            autor,
-                            titulo
+                            autor
                     );
 
                 default:

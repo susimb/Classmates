@@ -40,4 +40,9 @@ public class Intereses implements Estrategia {
 
         return feed;
     }
+
+    @Override
+    public List<Contenido> generar(Usuario usuario) {
+        return List.of();
+    }
 }

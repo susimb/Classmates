@@ -8,20 +8,15 @@ public class Notificacion {
     private TipoNotificacion tipo;
 
     private LocalDateTime fecha;
-
     private boolean leida;
 
     public Notificacion(String mensaje,
-                        TipoNotificacion tipo) {
+                        String tipo) {
 
         this.mensaje = mensaje;
-        this.tipo = tipo;
 
         this.fecha = LocalDateTime.now();
 
         this.leida = false;
-    }
-    public void Leida() {
-        leida = true;
     }
 }

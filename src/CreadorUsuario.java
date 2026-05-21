@@ -1,7 +1,4 @@
-import Usuarios.CuentaVerificada;
-import Usuarios.Moderador;
-import Usuarios.TipoUsuario;
-import Usuarios.Usuario;
+import Usuarios.*;
 
 public class CreadorUsuario {
     public static Usuario crearUsuario(
@@ -14,7 +11,7 @@ public class CreadorUsuario {
 
             case CREADOR:
 
-                return new CreadorContenido(
+                return new CreadorContenidoUsuario(
                         username,
                         correo,
                         password

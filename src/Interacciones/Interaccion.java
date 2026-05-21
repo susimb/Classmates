@@ -1,5 +1,6 @@
-package interacciones;
+package Interacciones;
 
+import Contenido.Contenido;
 import Usuarios.Usuario;
 
 import java.time.LocalDateTime;
@@ -14,20 +15,14 @@ public abstract class Interaccion {
     protected LocalDateTime fecha;
 
     public Interaccion(
-            Usuario emisor) {
-
-        if(emisor == null) {
-
-            throw new IllegalArgumentException(
-                    "El emisor no puede ser null."
-            );
-        }
+            Usuario usuario) {
 
         this.id = UUID.randomUUID();
 
-        this.emisor = emisor;
-
         this.fecha = LocalDateTime.now();
+    }
+
+    public Interaccion(Usuario emisor, Contenido contenido) {
     }
 
     public Usuario getEmisor() {

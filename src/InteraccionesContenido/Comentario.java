@@ -5,13 +5,12 @@ import Usuarios.Usuario;
 
 public class Comentario extends InteraccionesUtiles {
 
-    private String texto;
+    private Contenido texto;
 
-    public Comentario(Usuario emisor,
-                      Contenido contenido,
-                      String texto) {
+    public Comentario(Usuario usuario,
+                      Contenido texto) {
 
-        super(emisor, contenido);
+        super(usuario, texto);
 
         this.texto = texto;
     }
@@ -26,7 +25,7 @@ public class Comentario extends InteraccionesUtiles {
         );
     }
 
-    public String getTexto() {
+    public Contenido getTexto() {
         return texto;
     }
 }

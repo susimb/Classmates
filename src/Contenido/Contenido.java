@@ -1,10 +1,12 @@
 package Contenido;
 
+import Evento.Evento;
 import Excepciones.ComentarioVacio;
 import Excepciones.LikeDuplicado;
 import Excepciones.OperacionInvalida;
 import Excepciones.UsuarioNoEncontrado;
 import InteraccionesContenido.Comentario;
+import Notificador.Notificador;
 import Usuarios.Usuario;
 
 import java.time.LocalDateTime;
@@ -41,7 +43,7 @@ public abstract class Contenido {
         this.notificadores = new HashSet<>();
     }
 
-    protected Contenido() {
+    protected Contenido(Usuario autor, String texto) {
     }
     protected String categoria;
 
@@ -98,14 +100,7 @@ public abstract class Contenido {
                     "Comentario inválido."
             );
         }
-
-        if (comentario.getTexto().isBlank()) {
-
-            throw new ComentarioVacio();
-        }
-
         comentarios.add(comentario);
     }
-
     public abstract void mostrar();
 }

@@ -1,3 +1,5 @@
+import Evento.Evento;
+import Excepciones.OperacionInvalida;
 import InteraccionesContenido.Comentario;
 import InteraccionesContenido.Like;
 import InteraccionesUsuario.Follow;
@@ -8,26 +10,18 @@ public class CreadorEventos {
             String mensaje) {
         switch (tipo) {
             case CreadorTipoEventos.LIKE:
-                return new Like(
-                        mensaje
-                );
+                return new Like();
 
                 case CreadorTipoEventos.COMENTARIO:
 
-                    return new Comentario(
-                            mensaje
-                    );
+                    return new Comentario();
+                    case FOLLOW:
 
-                case FOLLOW:
-
-                    return new Follow(
-                            mensaje
-                    );
-
+                    return new Follow();
                 default:
 
-                    throw new IllegalArgumentException(
-                            "Evento inválido"
+                    throw new OperacionInvalida(
+                            "Evento.Evento inválido"
                     );
             }
         }

@@ -1,9 +1,10 @@
 package InteraccionesUsuario;
 
+import Interacciones.Interaccion;
 import Usuarios.Usuario;
 
 public abstract class InteraccionUsuario
-            extends interacciones.Interaccion {
+            extends Interaccion {
 
         protected Usuario receptor;
 
@@ -12,13 +13,6 @@ public abstract class InteraccionUsuario
                 Usuario receptor) {
 
             super(emisor);
-
-            if(receptor == null) {
-
-                throw new IllegalArgumentException(
-                        "Receptor inválido."
-                );
-            }
 
             this.receptor = receptor;
         }

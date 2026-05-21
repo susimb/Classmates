@@ -2,10 +2,11 @@ package InteraccionesContenido;
 
 import Contenido.Contenido;
 
+import Interacciones.Interaccion;
 import Usuarios.Usuario;
 
 public abstract class InteraccionContenido
-        extends interacciones.Interaccion {
+        extends Interaccion {
 
     protected Contenido contenido;
 

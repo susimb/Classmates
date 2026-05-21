@@ -1,3 +1,5 @@
+package Notificador;
+
 public class Registro {
 
     private String accion;
