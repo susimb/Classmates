@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.List;
 
-public class Intereses {
+public class Intereses implements EstrategiaFeed {
+
     private List<Contenido> contenidos;
 
     public Intereses(
@@ -10,15 +12,19 @@ public class Intereses {
     }
 
     @Override
-    public List<Contenido>
-    generar(Usuario usuario) {
+    public List<Contenido> generar(Usuario usuario) {
+
+        if (usuario == null) {
+
+            throw new UsuarioNoEncontrado();
+        }
 
         List<Contenido> feed =
                 new ArrayList<>();
 
-        for(Contenido contenido : contenidos) {
+        for (Contenido contenido : contenidos) {
 
-            if(contenido.getCategoria()
+            if (contenido.getCategoria()
                     .equalsIgnoreCase(
                             usuario.getPerfil()
                                     .getCarrera()
