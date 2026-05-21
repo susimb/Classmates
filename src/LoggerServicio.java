@@ -28,4 +28,3 @@ public class LoggerServicio implements Notificador {
             );
         }
     }
-    }
