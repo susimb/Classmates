@@ -1,5 +1,6 @@
 import Usuarios.CuentaVerificada;
 import Usuarios.Moderador;
+import Usuarios.TipoUsuario;
 import Usuarios.Usuario;
 
 public class CreadorUsuario {
@@ -38,7 +39,7 @@ public class CreadorUsuario {
                 default:
 
                     throw new IllegalArgumentException(
-                            "Tipo inválido"
+                            "Tipo no valido"
                     );
             }
         }

@@ -1,5 +1,10 @@
 import Contenido.Contenido;
 import Usuarios.Usuario;
+import Contenido.TipoContenido;
+import Contenido.Foto;
+import Contenido.Video;
+import Contenido.Historia;
+
 
 public class CreadorContenido {
     public static Contenido crearContenido(
@@ -29,7 +34,7 @@ public class CreadorContenido {
                 default:
 
                     throw new IllegalArgumentException(
-                            "Tipo inválido"
+                            "Tipo no valido"
                     );
             }
         }

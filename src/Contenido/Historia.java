@@ -2,7 +2,7 @@ package Contenido;
 
 import java.time.LocalDateTime;
 
-class Historia extends Contenido {
+public class Historia extends Contenido {
     private LocalDateTime expiracion;
     @Override
     public void mostrar() {

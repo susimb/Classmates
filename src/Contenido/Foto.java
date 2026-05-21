@@ -1,6 +1,6 @@
 package Contenido;
 
-class Foto extends Contenido {
+public class Foto extends Contenido {
 
     private String resolucion;
     private String formato;

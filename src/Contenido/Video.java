@@ -1,6 +1,6 @@
 package Contenido;
 
-class Video extends Contenido {
+public class Video extends Contenido {
 
     protected int duracion;
     @Override
