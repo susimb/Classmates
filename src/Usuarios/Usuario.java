@@ -3,10 +3,6 @@ package Usuarios;
 import Contenido.Contenido;
 import Notificacion.Notificacion;
 import Notificacion.PreferenciasNotificacion;
-import java.time.LocalDateTime;
-import java.util.*;
-
-
 public abstract class Usuario {
     protected UUID id;
     protected String username;
@@ -195,5 +191,4 @@ public String toString() {
             ", correo='" + correo + '\'' +
             ", fechaRegistro=" + fechaRegistro +
             '}';
-}
 }
