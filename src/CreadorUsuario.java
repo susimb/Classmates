@@ -1,7 +1,5 @@
 package factory.usuario;
 
-import model.usuario.*;
-
 public class CreadorUsuario {
 
     private CreadorUsuario() {
@@ -38,12 +36,6 @@ public class CreadorUsuario {
                         username,
                         correo,
                         password
-                );
-
-            default:
-
-                throw new IllegalArgumentException(
-                        "Tipo de usuario inválido."
                 );
         }
     }
