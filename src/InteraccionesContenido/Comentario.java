@@ -1,6 +1,6 @@
 package InteraccionesContenido;
 
-public class Comentario extends InteraccionContenido {
+public class Comentario extends InteraccionesUtiles {
 
     private String texto;
 

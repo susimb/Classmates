@@ -1,8 +1,8 @@
 package InteraccionesContenido;
 
-public abstract class InteraccionContenido extends Interaccion {
+public abstract class InteraccionesUtiles extends Interaccion {
     protected Contenido contenido;
-    public InteraccionContenido(
+    public InteraccionesUtiles(
             Usuario emisor,
             Contenido contenido) {
             super(emisor);

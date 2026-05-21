@@ -1,6 +1,6 @@
 package InteraccionesContenido;
 
-public class Like extends InteraccionContenido {
+public class Like extends InteraccionesUtiles {
 
     public Like(Usuario emisor,
                 Contenido contenido) {

@@ -1,7 +1,7 @@
 package InteraccionesContenido;
 
 public class Compartir
-        extends InteraccionContenido {
+        extends InteraccionesUtiles {
 
     public Compartir(Usuario emisor,
                      Contenido contenido) {
