@@ -4,9 +4,9 @@ import Usuarios.Usuario;
 import java.util.List;
 
 public class RecomendacionServicio {
-    private RecomendacionStrategy strategy;
+    private Estrategia strategy;
     public RecomendacionServicio(
-            RecomendacionStrategy strategy) {
+            Estrategia strategy) {
         this.strategy = strategy;
         }
         public List<Contenido>
@@ -15,7 +15,7 @@ public class RecomendacionServicio {
             return strategy.recomendar(usuario);
         }
         public void cambiarEstrategia(
-                RecomendacionStrategy strategy) {
+                Estrategia strategy) {
 
             this.strategy = strategy;
         }

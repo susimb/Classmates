@@ -1,5 +1,8 @@
 package InteraccionesContenido;
 
+import Contenido.Contenido;
+import Usuarios.Usuario;
+
 public class Comentario extends InteraccionesUtiles {
 
     private String texto;

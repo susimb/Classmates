@@ -1,29 +1,38 @@
+import Contenido.Contenido;
+import Usuarios.Usuario;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Cronologico {
-        private List<Contenido> contenidos;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
-        public FeedCronologico(
-                List<Contenido> contenidos) {
+public class Cronologico
+        implements Estrategia {
 
-            this.contenidos = contenidos;
-        }
+    private List<Contenido> contenidos;
 
-        @Override
-        public List<Contenido>
-        generar(Usuario usuario) {
+    public Cronologico(
+            List<Contenido> contenidos) {
 
-            List<Contenido> feed =
-                    new ArrayList<>(contenidos);
-
-            feed.sort(
-                    Comparator.comparing(
-                            Contenido::getFecha
-                    ).reversed()
-            );
-
-            return feed;
-        }
+        this.contenidos = contenidos;
     }
+
+    @Override
+    public List<Contenido>
+    recomendar(Usuario usuario) {
+
+        List<Contenido> feed =
+                new ArrayList<>(contenidos);
+
+        feed.sort(
+                Comparator.comparing(
+                        Contenido::getFecha
+                ).reversed()
+        );
+
+        return feed;
+    }
+}

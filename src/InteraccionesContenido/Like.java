@@ -1,9 +1,16 @@
-package InteraccionesContenido;
+package interacciones.contenido;
 
-public class Like extends InteraccionesUtiles {
 
-    public Like(Usuario emisor,
-                Contenido contenido) {
+import Contenido.Contenido;
+import InteraccionesContenido.InteraccionesUtiles;
+import Usuarios.Usuario;
+
+public class Like
+        extends InteraccionesUtiles {
+
+    public Like(
+            Usuario emisor,
+            Contenido contenido) {
 
         super(emisor, contenido);
     }
@@ -11,7 +18,7 @@ public class Like extends InteraccionesUtiles {
     @Override
     public void ejecutar() {
 
-        contenido.agregarLike(emisor);
+        Contenido.agregarLike(emisor);
 
         System.out.println(
                 emisor.getUsername() +

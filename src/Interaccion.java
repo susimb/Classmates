@@ -1,3 +1,5 @@
+import Usuarios.Usuario;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 

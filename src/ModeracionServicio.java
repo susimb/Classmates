@@ -1,3 +1,4 @@
+import Contenido.Contenido;
 import Usuarios.Usuario;
 
 import java.util.HashSet;
@@ -7,7 +8,7 @@ public class ModeracionServicio implements Notificador{
 
     private Set<Usuario> usuariosSuspendidos;
 
-    public ModerationService() {
+    public ModeracionServicio() {
 
         usuariosSuspendidos = new HashSet<>();
     }

@@ -1,3 +1,6 @@
+import Contenido.Contenido;
+import Usuarios.Usuario;
+
 import java.util.ArrayList;
 import java.util.List;
 

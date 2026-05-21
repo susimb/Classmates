@@ -26,4 +26,8 @@ public class Perfil {
                 universidad != null &&
                 carrera != null;
     }
+    public String getCarrera() {
+
+        return carrera;
+    }
 }

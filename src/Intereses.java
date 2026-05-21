@@ -1,9 +1,10 @@
 import Contenido.Contenido;
+import Usuarios.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Intereses implements OrdenFeed {
+public class Intereses implements Estrategia {
 
     private List<Contenido> contenidos;
 
@@ -14,7 +15,7 @@ public class Intereses implements OrdenFeed {
     }
 
     @Override
-    public List<Contenido> generar(Usuario usuario) {
+    public List<Contenido> recomendar(Usuario usuario) {
 
         if (usuario == null) {
 

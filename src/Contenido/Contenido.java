@@ -1,5 +1,6 @@
 package Contenido;
 
+import InteraccionesContenido.Comentario;
 import Usuarios.Usuario;
 
 import java.time.LocalDateTime;
@@ -37,6 +38,12 @@ public abstract class Contenido {
     }
 
     protected Contenido() {
+    }
+    protected String categoria;
+
+    public String getCategoria() {
+
+        return categoria;
     }
 
     public void agregarLike(Usuario usuario) {

@@ -7,7 +7,7 @@ public class ReporteServicio {
                 List<Usuario> usuarios) {
 
             System.out.println(
-                    "===== REPORTE DE USUARIOS ====="
+                    "Reportes"
             );
 
             for(Usuario usuario : usuarios) {

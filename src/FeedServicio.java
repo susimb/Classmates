@@ -1,8 +1,11 @@
+import Contenido.Contenido;
+import Usuarios.Usuario;
+
 import java.util.List;
 public class FeedServicio {
-        private FeedStrategy strategy;
+        private Estrategia strategy;
 
-        public FeedServicio(FeedStrategy strategy) {
+        public FeedServicio(Estrategia strategy) {
 
             this.strategy = strategy;
         }
@@ -10,11 +13,11 @@ public class FeedServicio {
         public List<Contenido>
         generarFeed(Usuario usuario) {
 
-            return strategy.generar(usuario);
+            return strategy.recomendar(usuario);
         }
 
         public void cambiarStrategy(
-                FeedStrategy strategy) {
+                Estrategia strategy) {
 
             this.strategy = strategy;
         }

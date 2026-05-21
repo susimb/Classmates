@@ -1,6 +1,9 @@
+import Contenido.Contenido;
+import Usuarios.Usuario;
+
 import java.util.List;
 public interface Estrategia {
-    List<Contenido> generar(
+    List<Contenido> recomendar(
             Usuario usuario
     );
 }
