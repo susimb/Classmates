@@ -1,8 +1,7 @@
-package interacciones.contenido;
+package InteraccionesContenido;
 
 
 import Contenido.Contenido;
-import InteraccionesContenido.InteraccionesUtiles;
 import Usuarios.Usuario;
 
 public class Like

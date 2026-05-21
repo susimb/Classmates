@@ -1,4 +1,8 @@
 package InteraccionesUsuario;
+
+import Contenido.Contenido;
+import Usuarios.Usuario;
+
 public class Reporte extends Interaccion {
 
     private String motivo;

@@ -1,21 +1,26 @@
 import Contenido.Contenido;
+
 import Usuarios.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Amigos {
+public class Amigos
+        implements Estrategia {
 
     private List<Contenido> contenidos;
 
-    public Amigos(List<Contenido> contenidos) {
+    public Amigos(
+            List<Contenido> contenidos) {
 
         this.contenidos = contenidos;
     }
-    @Override
-    public List<Contenido> generar(Usuario usuario) {
 
-        if (usuario == null) {
+    @Override
+    public List<Contenido>
+    generar(Usuario usuario) {
+
+        if(usuario == null) {
 
             throw new UsuarioNoEncontrado();
         }
@@ -23,9 +28,10 @@ public class Amigos {
         List<Contenido> feed =
                 new ArrayList<>();
 
-        for (Contenido contenido : contenidos) {
+        for(Contenido contenido
+                : contenidos) {
 
-            if (usuario.getAmigos()
+            if(usuario.getAmigos()
                     .contains(
                             contenido.getAutor()
                     )) {
@@ -35,5 +41,9 @@ public class Amigos {
         }
 
         return feed;
+    }
+    @Override
+    public List<Contenido> recomendar(Usuario usuario) {
+        return List.of();
     }
 }

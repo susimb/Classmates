@@ -6,4 +6,7 @@ public interface Estrategia {
     List<Contenido> recomendar(
             Usuario usuario
     );
+    List<Contenido> generar(
+            Usuario usuario
+    );
 }

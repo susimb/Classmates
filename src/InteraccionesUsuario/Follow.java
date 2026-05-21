@@ -1,5 +1,7 @@
 package InteraccionesUsuario;
 
+import Usuarios.Usuario;
+
 public class Follow extends Interaccion {
 
     public Follow(Usuario emisor,

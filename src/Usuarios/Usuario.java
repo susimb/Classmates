@@ -57,8 +57,6 @@ public abstract class Usuario
         this.notificadores = new HashSet<>();
     }
 
-    // MÉTODOS ABSTRACTOS
-
     public abstract void interactuar();
 
     public abstract boolean puedePublicar();
@@ -101,8 +99,6 @@ public abstract class Usuario
         publicaciones.add(contenido);
     }
 
-    // NOTIFICADOR
-
     @Override
     public void actualizar(Evento evento) {
 
@@ -122,8 +118,6 @@ public abstract class Usuario
             notificaciones.add(notificacion);
         }
     }
-
-    // GETTERS
 
     public UUID getId() {
 
@@ -165,8 +159,6 @@ public abstract class Usuario
         return preferencias;
     }
 
-    // SETTERS
-
     public void setPerfil(Perfil perfil) {
 
         this.perfil = perfil;
@@ -178,8 +170,6 @@ public abstract class Usuario
         this.preferencias = preferencias;
     }
 
-    // COMPARABLE
-
     @Override
     public int compareTo(Usuario otro) {
 
@@ -187,8 +177,6 @@ public abstract class Usuario
                 otro.username
         );
     }
-
-    // EQUALS Y HASHCODE
 
     @Override
     public boolean equals(Object o) {
@@ -213,8 +201,6 @@ public abstract class Usuario
 
         return Objects.hash(id);
     }
-
-    // OBSERVADORES
 
     public void agregarObservador(
             Notificador notificador) {

@@ -1,5 +1,7 @@
 package InteraccionesContenido;
 
+import Usuarios.Usuario;
+
 public class Compartir
         extends InteraccionesUtiles {
 

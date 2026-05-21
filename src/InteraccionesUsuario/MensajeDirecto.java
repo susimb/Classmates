@@ -1,5 +1,7 @@
 package InteraccionesUsuario;
 
+import Usuarios.Usuario;
+
 public class MensajeDirecto extends Interaccion {
     private String mensaje;
     public MensajeDirecto(
