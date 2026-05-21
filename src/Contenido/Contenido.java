@@ -45,7 +45,10 @@ public abstract class Contenido {
 
         return categoria;
     }
+    public LocalDateTime getFecha() {
 
+        return fecha;
+    }
     public void agregarLike(Usuario usuario) {
 
         if (usuario == null) {
