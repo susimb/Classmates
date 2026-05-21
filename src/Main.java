@@ -18,10 +18,6 @@ public class Main {
                         new RecomendacionPopularidad()
                 );
 
-        // =========================
-        // USUARIOS
-        // =========================
-
         Usuario creador =
                 UsuarioFactory.crearUsuario(
                         TipoUsuario.CREADOR,
