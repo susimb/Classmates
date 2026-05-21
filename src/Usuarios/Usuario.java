@@ -3,192 +3,251 @@ package Usuarios;
 import Contenido.Contenido;
 import Notificacion.Notificacion;
 import Notificacion.PreferenciasNotificacion;
-public abstract class Usuario {
+
+import java.time.LocalDateTime;
+import java.util.*;
+
+public abstract class Usuario
+        implements Comparable<Usuario>, Notificador {
+
     protected UUID id;
+
     protected String username;
+
     protected String correo;
+
     protected String password;
+
     protected LocalDateTime fechaRegistro;
+
     protected Perfil perfil;
+
     protected Set<Usuario> amigos;
+
     protected List<Contenido> publicaciones;
+
     protected Queue<Notificacion> notificaciones;
+
     protected PreferenciasNotificacion preferencias;
+
+    protected Set<Notificador> notificadores;
+
     public Usuario(String username,
                    String correo,
                    String password) {
 
         this.id = UUID.randomUUID();
+
         this.username = username;
+
         this.correo = correo;
+
         this.password = password;
 
         this.fechaRegistro = LocalDateTime.now();
+
         this.amigos = new HashSet<>();
+
         this.publicaciones = new ArrayList<>();
+
         this.notificaciones = new LinkedList<>();
+
         this.preferencias = new PreferenciasNotificacion();
+
+        this.notificadores = new HashSet<>();
     }
 
     // MÉTODOS ABSTRACTOS
+
     public abstract void interactuar();
 
     public abstract boolean puedePublicar();
 
     // FUNCIONALIDADES GENERALES
+
     public void agregarAmigo(Usuario usuario) {
-        if(usuario == null) {
+
+        if (usuario == null) {
+
             throw new UsuarioNoEncontrado();
         }
-        if(usuario.equals(this)) {
+
+        if (usuario.equals(this)) {
+
             throw new FollowInvalido();
         }
+
         amigos.add(usuario);
     }
+
     public void eliminarAmigo(Usuario usuario) {
+
         amigos.remove(usuario);
     }
 
-
     public void publicar(Contenido contenido) {
-        if(perfil == null ||
+
+        if (perfil == null ||
                 !perfil.estaCompleto()) {
+
             throw new PerfilIncompleto();
         }
-        if(contenido == null) {
+
+        if (contenido == null) {
+
             throw new ContenidoNoEncontrado();
         }
+
         publicaciones.add(contenido);
     }
 
-    publicaciones.add(contenido);
-}
-//  Notificador
-@Override
-public void actualizar(Evento evento) {
+    // NOTIFICADOR
 
-    if(evento == null) {
-        return;
+    @Override
+    public void actualizar(Evento evento) {
+
+        if (evento == null) {
+
+            return;
+        }
+
+        if (preferencias.permite(evento.getTipo())) {
+
+            Notificacion notificacion =
+                    new Notificacion(
+                            evento.getMensaje(),
+                            evento.getTipo()
+                    );
+
+            notificaciones.add(notificacion);
+        }
     }
 
-    if(preferencias.permite(evento.getTipo())) {
+    // GETTERS
 
-        Notificacion notificacion =
-                new Notificacion(
-                        evento.getMensaje(),
-                        evento.getTipo()
-                );
+    public UUID getId() {
 
-        notificaciones.add(notificacion);
+        return id;
     }
-}
-// GETTERS
 
-public UUID getId() {
-    return id;
-}
+    public String getUsername() {
 
-public String getUsername() {
-    return username;
-}
+        return username;
+    }
 
-public String getCorreo() {
-    return correo;
-}
+    public String getCorreo() {
 
-public Perfil getPerfil() {
-    return perfil;
-}
+        return correo;
+    }
 
-public Set<Usuario> getAmigos() {
-    return Collections.unmodifiableSet(amigos);
+    public Perfil getPerfil() {
 
-    List<Contenido> getPublicaciones() {
+        return perfil;
+    }
+
+    public Set<Usuario> getAmigos() {
+
+        return Collections.unmodifiableSet(amigos);
+    }
+
+    public List<Contenido> getPublicaciones() {
+
         return Collections.unmodifiableList(publicaciones);
     }
-    Queue<Notificacion> getNotificaciones() {
+
+    public Queue<Notificacion> getNotificaciones() {
+
         return notificaciones;
     }
-    PreferenciasNotificacion getPreferencias() {
+
+    public PreferenciasNotificacion getPreferencias() {
+
         return preferencias;
     }
-}
-// SETTERS
 
-public void setPerfil(Perfil perfil) {
-    this.perfil = perfil;
-}
+    // SETTERS
 
-public void setPreferencias(
-        PreferenciasNotificacion preferencias) {
+    public void setPerfil(Perfil perfil) {
 
-    this.preferencias = preferencias;
-}
-
-// COMPARABLE
-
-@Override
-public int compareTo(Usuario otro) {
-    return this.username.compareToIgnoreCase(
-            otro.username
-    );
-}
-// EQUALS Y HASHCODE
-@Override
-public boolean equals(Object o) {
-
-    if(this == o) {
-        return true;
+        this.perfil = perfil;
     }
 
-    if(!(o instanceof Usuario)) {
-        return false;
+    public void setPreferencias(
+            PreferenciasNotificacion preferencias) {
+
+        this.preferencias = preferencias;
     }
 
-    Usuario usuario = (Usuario) o;
+    // COMPARABLE
 
-    return id.equals(usuario.id);
-}
-@Override
-public int hashCode() {
-    return Objects.hash(id);
-}
+    @Override
+    public int compareTo(Usuario otro) {
 
-@Override
-public void agregarObservador(
-        Notificador Notificador) {
-
-    Notificadores.add(Notificador);
-}
-
-@Override
-public void removerObservador(
-        Notificador Notificador) {
-
-    Notificadores.remove(Notificador);
-}
-
-@Override
-public void notificar(
-        Evento evento) {
-
-    for(Notificador Notificador
-            : Notificadores) {
-
-        Notificadores.actualizar(
-                evento
+        return this.username.compareToIgnoreCase(
+                otro.username
         );
     }
-}
 
-// TOSTRING
-@Override
-public String toString() {
+    // EQUALS Y HASHCODE
 
-    return "Usuario{" +
-            "id=" + id +
-            ", username='" + username + '\'' +
-            ", correo='" + correo + '\'' +
-            ", fechaRegistro=" + fechaRegistro +
-            '}';
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) {
+
+            return true;
+        }
+
+        if (!(o instanceof Usuario)) {
+
+            return false;
+        }
+
+        Usuario usuario = (Usuario) o;
+
+        return id.equals(usuario.id);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id);
+    }
+
+    // OBSERVADORES
+
+    public void agregarObservador(
+            Notificador notificador) {
+
+        notificadores.add(notificador);
+    }
+
+    public void removerObservador(
+            Notificador notificador) {
+
+        notificadores.remove(notificador);
+    }
+
+    public void notificar(
+            Evento evento) {
+
+        for (Notificador notificador
+                : notificadores) {
+
+            notificador.actualizar(evento);
+        }
+    }
+
+    // TOSTRING
+
+    @Override
+    public String toString() {
+
+        return "Usuario{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", correo='" + correo + '\'' +
+                ", fechaRegistro=" + fechaRegistro +
+                '}';
+    }
 }
