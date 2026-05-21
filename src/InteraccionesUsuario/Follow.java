@@ -1,6 +1,6 @@
 package InteraccionesUsuario;
 
-public class Follow extends InteraccionUsuario {
+public class Follow extends Interaccion {
 
     public Follow(Usuario emisor,
                   Usuario receptor) {

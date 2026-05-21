@@ -1,6 +1,6 @@
 package InteraccionesUsuario;
 
-public class MensajeDirecto extends InteraccionUsuario {
+public class MensajeDirecto extends Interaccion {
     private String mensaje;
     public MensajeDirecto(
             Usuario emisor,

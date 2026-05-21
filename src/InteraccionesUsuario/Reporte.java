@@ -1,21 +1,46 @@
 package InteraccionesUsuario;
+public class Reporte extends Interaccion {
 
-public class Reporte {
     private String motivo;
-    Usuario emisor;
-    Contenido contenido;
-    String motivo;) {
+
+    public Reporte(
+            Usuario emisor,
+            Contenido contenido,
+            String motivo) {
 
         super(emisor, contenido);
 
-        this.motivo = motivo;
+        if(motivo == null ||
+                motivo.isBlank()) {
 
-        @Override
-        public void ejecutar() {
-
-            System.out.println(
-                    "Contenido reportado por: " + motivo
+            throw new IllegalArgumentException(
+                    "El motivo no puede estar vacío."
             );
         }
+
+        this.motivo = motivo;
+    }
+
+    @Override
+    public void ejecutar() {
+
+        System.out.println(
+                "Contenido reportado por: "
+                        + motivo
+        );
+    }
+
+    public String getMotivo() {
+
+        return motivo;
+    }
+
+    @Override
+    public String toString() {
+
+        return "Reporte{" +
+                "motivo='" + motivo + '\'' +
+                ", contenido=" + contenido +
+                '}';
     }
 }

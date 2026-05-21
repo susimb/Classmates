@@ -6,7 +6,6 @@ public abstract class InteraccionContenido extends Interaccion {
             Usuario emisor,
             Contenido contenido) {
             super(emisor);
-
         this.contenido = contenido;
     }
 }
