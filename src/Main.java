@@ -13,53 +13,45 @@ public class Main {
         ModeracionServicio moderacionServicio =
                 new ModeracionServicio();
 
-        RecomendacionServicio RecomendationServicio =
-                new RecommendacionServicio(
-                        new RecomendacionPopularidad()
+        RecomendacionServicio RecomendacionServicio =
+                new RecomendacionServicio(
+                        new Amigos()
                 );
 
-        Usuario creador =
-                UsuarioFactory.crearUsuario(
+        Usuario CREADOR =
+                CreadorUsuario.crearUsuario(
                         TipoUsuario.CREADOR,
                         "Ana",
                         "ana@gmail.com",
                         "1234"
                 );
 
-        Usuario verificado =
-                UsuarioFactory.crearUsuario(
+        Usuario VERIFICADO =
+                CreadorUsuario.crearUsuario(
                         TipoUsuario.VERIFICADO,
                         "Carlos",
                         "carlos@gmail.com",
                         "4321"
                 );
 
-        Usuario moderador =
-                UsuarioFactory.crearUsuario(
+        Usuario MODERADOR =
+                CreadorUsuario.crearUsuario(
                         TipoUsuario.MODERADOR,
                         "Laura",
                         "laura@gmail.com",
-                        "9999"
+                        "0000"
                 );
 
-        // =========================
-        // RELACIONES
-        // =========================
-
-        creador.agregarAmigo(verificado);
+        CREADOR.agregarAmigo(verificado);
 
         logger.registrar(
                 "Ana siguió a Carlos"
         );
 
-        // =========================
-        // CONTENIDO
-        // =========================
-
         Contenido reel =
                 ContenidoFactory.crearContenido(
                         TipoContenido.REEL,
-                        creador,
+                        CREADOR,
                         "Mi primer Reel"
                 );
 
@@ -90,7 +82,7 @@ public class Main {
         // PUBLICACIONES
         // =========================
 
-        creador.publicar(reel);
+        CREADOR.publicar(reel);
 
         verificado.publicar(podcast);
 
@@ -138,7 +130,7 @@ public class Main {
 
         List<Contenido> feed =
                 feedService.generarFeed(
-                        creador
+                        CREADOR
                 );
 
         // =========================
@@ -158,9 +150,9 @@ public class Main {
         // RECOMENDACIONES
         // =========================
 
-        RecomendationServicio
+        RecomendacionServicio
                 .recomendarContenido(
-                        creador
+                        CREADOR
                 );
 
         // =========================
