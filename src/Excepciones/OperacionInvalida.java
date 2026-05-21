@@ -1,3 +1,5 @@
+package Excepciones;
+
 public class OperacionInvalida extends Errores {
         public OperacionInvalida(
                 String mensaje) {

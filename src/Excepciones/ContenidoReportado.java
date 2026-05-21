@@ -1,3 +1,5 @@
+package Excepciones;
+
 public class ContenidoReportado extends Errores {
     public ContenidoReportado() {
         super(

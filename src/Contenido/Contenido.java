@@ -16,7 +16,7 @@ public abstract class Contenido {
 
     protected LocalDateTime fecha;
 
-    protected Set<Usuario> likes;
+    protected static Set<Usuario> likes;
 
     protected Set<Comentario> comentarios;
 
@@ -49,7 +49,7 @@ public abstract class Contenido {
 
         return fecha;
     }
-    public void agregarLike(Usuario usuario) {
+    public static void agregarLike(Usuario usuario) {
 
         if (usuario == null) {
 

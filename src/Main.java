@@ -1,3 +1,5 @@
+import Usuarios.Usuario;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -6,26 +8,22 @@ public class Main {
         // SERVICIOS
         // =========================
 
-        LoggerService logger =
-                new LoggerService();
+        LoggerServicio logger =
+                new LoggerServicio();
 
-        NotificationService notificationService =
-                new NotificationService();
+        NotificacionServicio notificacionServicion =
+                new NotificacionServicio();
 
-        ModerationService moderationService =
-                new ModerationService();
+        ModeracionServicio moderacionServicion =
+                new ModeracionServicio();
 
-        RecommendationService recommendationService =
-                new RecommendationService(
-                        new RecomendacionPopularidad()
+        RecomendacionServicio recomendacionServicio =
+                new RecomendacionServicio(
+                        new Amigos()
                 );
 
-        // =========================
-        // USUARIOS
-        // =========================
-
         Usuario creador =
-                UsuarioFactory.crearUsuario(
+                CreadorUsuario.crearUsuario(
                         TipoUsuario.CREADOR,
                         "Ana",
                         "ana@gmail.com",
@@ -164,7 +162,7 @@ public class Main {
         // RECOMENDACIONES
         // =========================
 
-        recommendationService
+        recomendacionServicio
                 .recomendarContenido(
                         creador
                 );

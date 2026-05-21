@@ -1,3 +1,5 @@
+package Excepciones;
+
 public class FeedVacio extends Errores {
     public FeedVacio() {
             super(

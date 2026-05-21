@@ -1,3 +1,5 @@
+package Excepciones;
+
 public class ContenidoNoEncontrado extends Errores {
         public ContenidoNoEncontrado() {
             super(

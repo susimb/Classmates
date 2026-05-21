@@ -2,10 +2,12 @@ package InteraccionesUsuario;
 
 import Usuarios.Usuario;
 
-public class Follow extends Interaccion {
+public class Follow
+        extends InteraccionUsuario {
 
-    public Follow(Usuario emisor,
-                  Usuario receptor) {
+    public Follow(
+            Usuario emisor,
+            Usuario receptor) {
 
         super(emisor, receptor);
     }
@@ -13,12 +15,12 @@ public class Follow extends Interaccion {
     @Override
     public void ejecutar() {
 
-        receptor.agregarAmigo(emisor);
+        emisor.agregarAmigo(receptor);
 
         System.out.println(
-                emisor.getUsername() +
-                        " comenzó a seguir a " +
-                        receptor.getUsername()
+                emisor.getUsername()
+                        + " siguió a "
+                        + receptor.getUsername()
         );
     }
 }

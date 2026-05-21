@@ -1,3 +1,5 @@
+package Excepciones;
+
 public class PerfilIncompleto extends Errores {
         public PerfilIncompleto() {
             super(

@@ -1,5 +1,6 @@
 import Contenido.Contenido;
 
+import Excepciones.UsuarioNoEncontrado;
 import Usuarios.Usuario;
 
 import java.util.ArrayList;

@@ -1,9 +1,11 @@
-package InteraccionesUsuario;
+package InteraccionesContenido;
 
 import Contenido.Contenido;
+
 import Usuarios.Usuario;
 
-public class Reporte extends Interaccion {
+public class Reporte
+        extends InteraccionContenido {
 
     private String motivo;
 
@@ -18,7 +20,7 @@ public class Reporte extends Interaccion {
                 motivo.isBlank()) {
 
             throw new IllegalArgumentException(
-                    "El motivo no puede estar vacío."
+                    "Motivo inválido."
             );
         }
 
@@ -29,7 +31,8 @@ public class Reporte extends Interaccion {
     public void ejecutar() {
 
         System.out.println(
-                "Contenido reportado por: "
+                emisor.getUsername()
+                        + " reportó el contenido por: "
                         + motivo
         );
     }

@@ -3,7 +3,7 @@ package InteraccionesContenido;
 import Contenido.Contenido;
 import Usuarios.Usuario;
 
-public abstract class InteraccionesUtiles extends Interaccion {
+public abstract class InteraccionesUtiles extends interacciones.Interaccion {
     protected Contenido contenido;
     public InteraccionesUtiles(
             Usuario emisor,

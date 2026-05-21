@@ -1,5 +1,6 @@
 package InteraccionesContenido;
 
+import Contenido.Contenido;
 import Usuarios.Usuario;
 
 public class Compartir

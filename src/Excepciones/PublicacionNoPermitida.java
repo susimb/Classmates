@@ -1,3 +1,5 @@
+package Excepciones;
+
 public class PublicacionNoPermitida extends Errores {
     public PublicacionNoPermitida() {
         super(
