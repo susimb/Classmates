@@ -167,6 +167,7 @@ public boolean equals(Object o) {
 public int hashCode() {
     return Objects.hash(id);
 }
+
 @Override
     public void agregarObservador(
             Notificador Notificador) {

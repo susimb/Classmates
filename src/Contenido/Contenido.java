@@ -33,5 +33,32 @@ public abstract class Contenido {
         likes.add(usuario);
     }
 
+    @Override
+    public void agregarObservador(
+            Notificador Notificador) {
+
+        Notificadores.add(Notificador);
+    }
+
+    @Override
+    public void removerObservador(
+            Notificador Notificador) {
+
+        Notificadores.remove(Notificador);
+    }
+
+    @Override
+    public void notificar(
+            Evento evento) {
+
+        for(Notificador Notificador
+                : Notificadores) {
+
+            Notificador.actualizar(
+                    evento
+            );
+        }
+    }
+
     public abstract void mostrar();
 }
