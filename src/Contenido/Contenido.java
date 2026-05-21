@@ -17,47 +17,76 @@ public abstract class Contenido {
 
     protected Set<Usuario> likes;
 
+    protected Set<Comentario> comentarios;
+
+    protected Set<Notificador> notificadores;
+
     public Contenido(Usuario autor) {
+
         this.id = UUID.randomUUID();
+
         this.autor = autor;
 
         this.fecha = LocalDateTime.now();
 
         this.likes = new HashSet<>();
+
+        this.comentarios = new HashSet<>();
+
+        this.notificadores = new HashSet<>();
     }
 
     protected Contenido() {
     }
 
     public void agregarLike(Usuario usuario) {
+
+        if (usuario == null) {
+
+            throw new UsuarioNoEncontrado();
+        }
+
+        if (likes.contains(usuario)) {
+
+            throw new LikeDuplicado();
+        }
+
         likes.add(usuario);
     }
 
-    @Override
-    public void agregarObservador(
-            Notificador Notificador) {
+    public void agregarObservador(Notificador notificador) {
 
-        Notificadores.add(Notificador);
+        notificadores.add(notificador);
     }
 
-    @Override
-    public void removerObservador(
-            Notificador Notificador) {
+    public void removerObservador(Notificador notificador) {
 
-        Notificadores.remove(Notificador);
+        notificadores.remove(notificador);
     }
 
-    @Override
-    public void notificar(
-            Evento evento) {
+    public void notificar(Evento evento) {
 
-        for(Notificador Notificador
-                : Notificadores) {
+        for (Notificador notificador : notificadores) {
 
-            Notificador.actualizar(
-                    evento
+            notificador.actualizar(evento);
+        }
+    }
+
+    public void agregarComentario(Comentario comentario) {
+
+        if (comentario == null) {
+
+            throw new OperacionInvalida(
+                    "Comentario inválido."
             );
         }
+
+        if (comentario.getTexto().isBlank()) {
+
+            throw new ComentarioVacio();
+        }
+
+        comentarios.add(comentario);
     }
 
     public abstract void mostrar();

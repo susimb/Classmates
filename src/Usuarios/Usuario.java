@@ -15,43 +15,43 @@ public abstract class Usuario {
     protected Queue<Notificacion> notificaciones;
     protected PreferenciasNotificacion preferencias;
     public Usuario(String username,
-               String correo,
-               String password) {
+                   String correo,
+                   String password) {
 
-    this.id = UUID.randomUUID();
-    this.username = username;
-    this.correo = correo;
-    this.password = password;
+        this.id = UUID.randomUUID();
+        this.username = username;
+        this.correo = correo;
+        this.password = password;
 
-    this.fechaRegistro = LocalDateTime.now();
-    this.amigos = new HashSet<>();
-    this.publicaciones = new ArrayList<>();
-    this.notificaciones = new LinkedList<>();
-    this.preferencias = new PreferenciasNotificacion();
+        this.fechaRegistro = LocalDateTime.now();
+        this.amigos = new HashSet<>();
+        this.publicaciones = new ArrayList<>();
+        this.notificaciones = new LinkedList<>();
+        this.preferencias = new PreferenciasNotificacion();
     }
 
-// MÉTODOS ABSTRACTOS
-public abstract void interactuar();
+    // MÉTODOS ABSTRACTOS
+    public abstract void interactuar();
 
-public abstract boolean puedePublicar();
+    public abstract boolean puedePublicar();
 
-// FUNCIONALIDADES GENERALES
-public void agregarAmigo(Usuario usuario) {
-    if(usuario == null) {
-        throw new UsuarioNoEncontrado();
+    // FUNCIONALIDADES GENERALES
+    public void agregarAmigo(Usuario usuario) {
+        if(usuario == null) {
+            throw new UsuarioNoEncontrado();
         }
         if(usuario.equals(this)) {
             throw new FollowInvalido();
         }
-    amigos.add(usuario);
-}
-public void eliminarAmigo(Usuario usuario) {
-    amigos.remove(usuario);
-}
+        amigos.add(usuario);
+    }
+    public void eliminarAmigo(Usuario usuario) {
+        amigos.remove(usuario);
+    }
 
 
-public void publicar(Contenido contenido) {
-    if(perfil == null ||
+    public void publicar(Contenido contenido) {
+        if(perfil == null ||
                 !perfil.estaCompleto()) {
             throw new PerfilIncompleto();
         }
@@ -64,8 +64,8 @@ public void publicar(Contenido contenido) {
     publicaciones.add(contenido);
 }
 //  Notificador
-    @Override
-    public void actualizar(Evento evento) {
+@Override
+public void actualizar(Evento evento) {
 
     if(evento == null) {
         return;
@@ -103,13 +103,13 @@ public Perfil getPerfil() {
 public Set<Usuario> getAmigos() {
     return Collections.unmodifiableSet(amigos);
 
-List<Contenido> getPublicaciones() {
+    List<Contenido> getPublicaciones() {
         return Collections.unmodifiableList(publicaciones);
     }
-Queue<Notificacion> getNotificaciones() {
+    Queue<Notificacion> getNotificaciones() {
         return notificaciones;
     }
-PreferenciasNotificacion getPreferencias() {
+    PreferenciasNotificacion getPreferencias() {
         return preferencias;
     }
 }
@@ -155,31 +155,31 @@ public int hashCode() {
 }
 
 @Override
-    public void agregarObservador(
-            Notificador Notificador) {
+public void agregarObservador(
+        Notificador Notificador) {
 
-        Notificadores.add(Notificador);
+    Notificadores.add(Notificador);
+}
+
+@Override
+public void removerObservador(
+        Notificador Notificador) {
+
+    Notificadores.remove(Notificador);
+}
+
+@Override
+public void notificar(
+        Evento evento) {
+
+    for(Notificador Notificador
+            : Notificadores) {
+
+        Notificadores.actualizar(
+                evento
+        );
     }
-
-    @Override
-    public void removerObservador(
-            Notificador Notificador) {
-
-        Notificadores.remove(Notificador);
-    }
-
-    @Override
-    public void notificar(
-            Evento evento) {
-
-        for(Notificador Notificador
-                : Notificadores) {
-
-            Notificadores.actualizar(
-                    evento
-            );
-        }
-    }
+}
 
 // TOSTRING
 @Override
