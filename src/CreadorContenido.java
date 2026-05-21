@@ -4,38 +4,24 @@ public class CreadorContenido {
             Usuario autor,
             String titulo) {
         switch (tipo) {
-            case FOTO:
+            case CreadorTipoContenido.FOTO:
                 return new Foto(
                         autor,
                         titulo
                     );
 
-                case VIDEO:
+                case CreadorTipoContenido.VIDEO:
                     return new Video(
                             autor,
                             titulo
                     );
 
-                case HISTORIA:
+                case CreadorTipoContenido.HISTORIA:
 
                     return new Historia(
                             autor,
                             titulo
                     );
-
-                case PODCAST:
-
-                    return new Podcast(
-                            autor,
-                            titulo
-                    );
-
-                default:
-
-                    throw new IllegalArgumentException(
-                            "Tipo inválido"
-                    );
-            }
         }
     }
 }

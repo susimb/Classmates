@@ -1,4 +1,12 @@
+package factory.usuario;
+
+import model.usuario.*;
+
 public class CreadorUsuario {
+
+    private CreadorUsuario() {
+    }
+
     public static Usuario crearUsuario(
             TipoUsuario tipo,
             String username,
@@ -13,30 +21,30 @@ public class CreadorUsuario {
                         username,
                         correo,
                         password
-                    );
-                case VERIFICADO:
+                );
 
-                    return new CuentaVerificada(
-                            username,
-                            correo,
-                            password,
-                            "Azul"
-                    );
+            case VERIFICADO:
 
-                case MODERADOR:
+                return new CuentaVerificada(
+                        username,
+                        correo,
+                        password,
+                        "Azul"
+                );
 
-                    return new Moderador(
-                            username,
-                            correo,
-                            password
-                    );
+            case MODERADOR:
 
-                default:
+                return new Moderador(
+                        username,
+                        correo,
+                        password
+                );
 
-                    throw new IllegalArgumentException(
-                            "Tipo inválido"
-                    );
-            }
+            default:
+
+                throw new IllegalArgumentException(
+                        "Tipo de usuario inválido."
+                );
         }
     }
 }

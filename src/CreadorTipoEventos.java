@@ -1,7 +1,7 @@
 public enum CreadorTipoEventos {
-        LIKE,
+    Like,
 
-        COMENTARIO,
+    Comentario,
 
-        FOLLOW
+    Follow
     }

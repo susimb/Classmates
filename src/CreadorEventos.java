@@ -3,27 +3,21 @@ public class CreadorEventos {
             TipoEvento tipo,
             String mensaje) {
         switch (tipo) {
-            case LIKE:
+            case CreadorTipoEventos.Like:
                 return new LikeEvento(
                         mensaje
                 );
 
-                case COMENTARIO:
+                case CreadorTipoEventos.Comentario:
 
                     return new ComentarioEvento(
                             mensaje
                     );
 
-                case FOLLOW:
+                case CreadorTipoEventos.Follow:
 
                     return new FollowEvento(
                             mensaje
-                    );
-
-                default:
-
-                    throw new IllegalArgumentException(
-                            "Evento inválido"
                     );
             }
         }
