@@ -1,14 +1,9 @@
 package InteraccionesContenido;
 
-import Contenido.Contenido;
-import Usuarios.Usuario;
-
 public class Compartir
         extends InteraccionesUtiles {
 
-    public Compartir(Usuario emisor,
-                     Contenido contenido) {
-
+    public Compartir(String emisor, String contenido) {
         super(emisor, contenido);
     }
 

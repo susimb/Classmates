@@ -20,7 +20,7 @@ public class NotificacionServicio implements Notificador {
 
             System.out.println(
                     "Notificación enviada a " +
-                            usuario.getUsername()
+                            Usuario.getUsername()
             );
         }
     }

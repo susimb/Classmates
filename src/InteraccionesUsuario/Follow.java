@@ -6,8 +6,8 @@ public class Follow
         extends InteraccionUsuario {
 
     public Follow(
-            Usuario emisor,
-            Usuario receptor) {
+            String emisor,
+            String receptor) {
 
         super(emisor, receptor);
     }
@@ -18,9 +18,9 @@ public class Follow
         emisor.agregarAmigo(receptor);
 
         System.out.println(
-                emisor.getUsername()
+                Usuario.getUsername()
                         + " siguió a "
-                        + receptor.getUsername()
+                        + Usuario.getUsername()
         );
     }
 }

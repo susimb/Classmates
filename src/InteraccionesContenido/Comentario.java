@@ -1,14 +1,13 @@
 package InteraccionesContenido;
 
-import Contenido.Contenido;
 import Usuarios.Usuario;
 
 public class Comentario extends InteraccionesUtiles {
 
-    private Contenido texto;
+    private String texto;
 
-    public Comentario(Usuario usuario,
-                      Contenido texto) {
+    public Comentario(String usuario,
+                      String texto) {
 
         super(usuario, texto);
 
@@ -19,13 +18,13 @@ public class Comentario extends InteraccionesUtiles {
     public void ejecutar() {
 
         System.out.println(
-                emisor.getUsername() +
+                Usuario.getUsername() +
                         " comentó: " +
                         texto
         );
     }
 
-    public Contenido getTexto() {
+    public String getTexto() {
         return texto;
     }
 }

@@ -13,14 +13,8 @@ public class PreferenciasNotificacion {
         permitidas.add(TipoNotificacion.Like);
         permitidas.add(TipoNotificacion.Comentario);
     }
+
     public boolean permite(String tipo) {
         return permitidas.contains(tipo);
-    }
-    public void activar(TipoNotificacion tipo) {
-        permitidas.add(tipo);
-    }
-
-    public void desactivar(TipoNotificacion tipo) {
-        permitidas.remove(tipo);
     }
 }

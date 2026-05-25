@@ -5,14 +5,11 @@ import Usuarios.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
+import static Contenido.TipoContenido.FOTO;
+
 public class Main {
 
     public static void main(String[] args) {
-
-        // =========================
-        // SERVICIOS
-        // =========================
-
         LoggerServicio logger =
                 new LoggerServicio();
 
@@ -24,8 +21,7 @@ public class Main {
 
         RecomendacionServicio recomendacionServicio =
                 new RecomendacionServicio(
-                        new Amigos()
-                );
+                        new Amigos(   ));
 
         Usuario creador =
                 CreadorUsuario.crearUsuario(
@@ -36,7 +32,7 @@ public class Main {
                 );
 
         Usuario verificado =
-                UsuarioFactory.crearUsuario(
+                CreadorUsuario.crearUsuario(
                         TipoUsuario.VERIFICADO,
                         "Carlos",
                         "carlos@gmail.com",
@@ -44,16 +40,12 @@ public class Main {
                 );
 
         Usuario moderador =
-                UsuarioFactory.crearUsuario(
+                CreadorUsuario.crearUsuario(
                         TipoUsuario.MODERADOR,
                         "Laura",
                         "laura@gmail.com",
                         "9999"
                 );
-
-        // =========================
-        // RELACIONES
-        // =========================
 
         creador.agregarAmigo(verificado);
 
@@ -61,30 +53,17 @@ public class Main {
                 "Ana siguió a Carlos"
         );
 
-        // =========================
-        // CONTENIDO
-        // =========================
 
         Contenido reel =
-                ContenidoFactory.crearContenido(
-                        TipoContenido.REEL,
+                CreadorContenido.crearContenido(
+                        FOTO,
                         creador,
                         "Mi primer Reel"
                 );
 
-        Contenido podcast =
-                ContenidoFactory.crearContenido(
-                        TipoContenido.PODCAST,
-                        verificado,
-                        "Podcast Tecnología"
-                );
-
-        // =========================
-        // OBSERVER
-        // =========================
 
         reel.agregarObservador(
-                notificationService
+                notificacionServicion
         );
 
         reel.agregarObservador(
@@ -92,24 +71,15 @@ public class Main {
         );
 
         reel.agregarObservador(
-                moderationService
+                moderacionServicion
         );
 
-        // =========================
-        // PUBLICACIONES
-        // =========================
 
-        creador.publicar(reel);
-
-        verificado.publicar(podcast);
+        creador.publicar(  );
 
         logger.registrar(
                 "Usuarios publicaron contenido"
         );
-
-        // =========================
-        // INTERACCIONES
-        // =========================
 
         reel.agregarLike(verificado);
 
@@ -117,45 +87,34 @@ public class Main {
                 "Carlos dio like"
         );
 
-        // =========================
-        // MODERACIÓN
-        // =========================
-
-        moderationService.reportarContenido(
+        moderacionServicion.reportarContenido(
                 reel,
                 verificado,
                 "Contenido sospechoso"
         );
 
-        // =========================
-        // FEED
-        // =========================
 
         List<Contenido> contenidos =
                 new ArrayList<>();
 
-        contenidos.add(reel);
+        contenidos.add( );
 
-        contenidos.add(podcast);
 
-        FeedService feedService =
-                new FeedService(
-                        new FeedPopularidad(
+        FeedServicio feedServicio =
+                new FeedServicio(
+                        new Intereses(
                                 contenidos
                         )
                 );
 
         List<Contenido> feed =
-                feedService.generarFeed(
+                feedServicio.generarFeed(
                         creador
                 );
 
-        // =========================
-        // MOSTRAR FEED
-        // =========================
 
         System.out.println(
-                "\n===== FEED ====="
+                "FEED "
         );
 
         for(Contenido contenido : feed) {
@@ -163,18 +122,12 @@ public class Main {
             contenido.mostrar();
         }
 
-        // =========================
-        // RECOMENDACIONES
-        // =========================
 
         recomendacionServicio
                 .recomendarContenido(
                         creador
                 );
 
-        // =========================
-        // HISTORIAL
-        // =========================
 
         System.out.println(
                 "LOGS"

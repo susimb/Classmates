@@ -1,6 +1,5 @@
 package Interacciones;
 
-import Contenido.Contenido;
 import Usuarios.Usuario;
 
 import java.time.LocalDateTime;
@@ -22,7 +21,10 @@ public abstract class Interaccion {
         this.fecha = LocalDateTime.now();
     }
 
-    public Interaccion(Usuario emisor, Contenido contenido) {
+    public Interaccion(String emisor, String contenido) {
+    }
+
+    protected Interaccion(String emisor) {
     }
 
     public Usuario getEmisor() {

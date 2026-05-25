@@ -49,7 +49,7 @@ public class Moderador extends Usuario {
 
         System.out.println(
                 "Usuario suspendido: " +
-                        usuario.getUsername()
+                        getUsername()
         );
     }
 

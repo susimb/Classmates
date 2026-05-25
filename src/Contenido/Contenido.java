@@ -1,7 +1,6 @@
 package Contenido;
 
 import Evento.Evento;
-import Excepciones.ComentarioVacio;
 import Excepciones.LikeDuplicado;
 import Excepciones.OperacionInvalida;
 import Excepciones.UsuarioNoEncontrado;
@@ -28,6 +27,10 @@ public abstract class Contenido {
 
     protected Set<Notificador> notificadores;
 
+    protected static String texto() {
+        return null;
+    }
+
     public Contenido(Usuario autor) {
 
         this.id = UUID.randomUUID();
@@ -36,7 +39,7 @@ public abstract class Contenido {
 
         this.fecha = LocalDateTime.now();
 
-        this.likes = new HashSet<>();
+        likes = new HashSet<>();
 
         this.comentarios = new HashSet<>();
 
@@ -51,6 +54,12 @@ public abstract class Contenido {
 
         return categoria;
     }
+    public static String getTexto() {
+
+        return texto();
+    }
+
+
     public LocalDateTime getFecha() {
 
         return fecha;

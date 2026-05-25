@@ -18,7 +18,7 @@ public abstract class Usuario
 
     protected UUID id;
 
-    protected String username;
+    protected static String username;
 
     protected String correo;
 
@@ -70,7 +70,7 @@ public abstract class Usuario
 
         this.id = UUID.randomUUID();
 
-        this.username = username;
+        Usuario.username = username;
 
         this.correo = correo;
 
@@ -133,31 +133,27 @@ public abstract class Usuario
     public void publicar(
             Contenido contenido) {
 
-        if(!puedePublicar()) {
+        if (!puedePublicar()) {
 
             throw new UnsupportedOperationException(
                     "No tiene permisos para publicar."
             );
         }
 
-        if(perfil == null ||
+        if (perfil == null ||
                 !perfil.estaCompleto()) {
 
             throw new PerfilIncompleto();
         }
 
-        if(contenido == null) {
+        if (contenido == null) {
 
             throw new ContenidoNoEncontrado();
         }
 
         publicaciones.add(contenido);
-
-        Evento evento =
-                new Evento();
-
-        notificar(evento);
     }
+
 
     @Override
     public void actualizar(
@@ -173,8 +169,7 @@ public abstract class Usuario
 
             Notificacion notificacion =
                     new Notificacion(
-                            evento.getMensaje(),
-                            evento.getTipo()
+                            evento.getMensaje()
                     );
 
             notificaciones.add(
@@ -212,14 +207,12 @@ public abstract class Usuario
         }
     }
 
-    // GETTERS
-
     public UUID getId() {
 
         return id;
     }
 
-    public String getUsername() {
+    public static String getUsername() {
 
         return username;
     }
@@ -285,9 +278,9 @@ public abstract class Usuario
     public int compareTo(
             Usuario otro) {
 
-        return this.username
+        return username
                 .compareToIgnoreCase(
-                        otro.username
+                        username
                 );
     }
 

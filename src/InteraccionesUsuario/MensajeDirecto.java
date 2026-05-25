@@ -29,9 +29,9 @@ public class MensajeDirecto
     public void ejecutar() {
 
         System.out.println(
-                emisor.getUsername()
+                Usuario.getUsername()
                         + " envió un mensaje a "
-                        + receptor.getUsername()
+                        + Usuario.getUsername()
                         + ": "
                         + mensaje
         );

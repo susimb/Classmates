@@ -1,28 +1,24 @@
-import Evento.Evento;
-import Excepciones.OperacionInvalida;
+import Contenido.Contenido;
+import Interacciones.Interaccion;
 import InteraccionesContenido.Comentario;
 import InteraccionesContenido.Like;
 import InteraccionesUsuario.Follow;
+import Usuarios.Usuario;
 
 public class CreadorEventos {
-    public static Evento crearEvento(
+    public static Interaccion crearEvento(
             CreadorTipoEventos tipo,
             String mensaje) {
-        switch (tipo) {
-            case CreadorTipoEventos.LIKE:
-                return new Like();
-
-                case CreadorTipoEventos.COMENTARIO:
-
-                    return new Comentario();
-                    case FOLLOW:
-
-                    return new Follow();
-                default:
-
-                    throw new OperacionInvalida(
-                            "Evento.Evento inválido"
-                    );
-            }
-        }
-    }
+        return switch (tipo) {
+            case CreadorTipoEventos.LIKE -> new Like(
+                    Usuario.getUsername(),
+                    Contenido.getTexto());
+            case CreadorTipoEventos.COMENTARIO -> new Comentario(
+                    Usuario.getUsername(),
+                    Contenido.getTexto());
+            case FOLLOW -> new Follow(
+                    Usuario.getUsername(),
+                    Usuario.getUsername());
+        };
+}
+}

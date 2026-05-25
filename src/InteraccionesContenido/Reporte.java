@@ -7,7 +7,7 @@ import Usuarios.Usuario;
 public class Reporte
         extends InteraccionContenido {
 
-    private String motivo;
+    private final String motivo;
 
     public Reporte(
             Usuario emisor,
@@ -31,7 +31,7 @@ public class Reporte
     public void ejecutar() {
 
         System.out.println(
-                emisor.getUsername()
+                Usuario.getUsername()
                         + " reportó el contenido por: "
                         + motivo
         );

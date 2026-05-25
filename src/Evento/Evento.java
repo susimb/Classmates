@@ -4,15 +4,11 @@ public class Evento {
 
     private String mensaje;
 
-    private String tipo;
+    private final String tipo;
 
-    public Evento(
-            String mensaje,
-            String tipo) {
-
+    public Evento(String mensaje) {
         this.mensaje = mensaje;
-
-        this.tipo = tipo;
+        tipo = "";
     }
 
     public String getMensaje() {

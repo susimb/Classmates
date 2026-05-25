@@ -7,8 +7,8 @@ public class Like
         extends InteraccionesUtiles {
 
     public Like(
-            Usuario emisor,
-            Contenido contenido) {
+            String emisor,
+            String contenido) {
 
         super(emisor, contenido);
     }
@@ -19,7 +19,7 @@ public class Like
         Contenido.agregarLike(emisor);
 
         System.out.println(
-                emisor.getUsername() +
+                Usuario.getUsername() +
                         " dio like"
         );
     }

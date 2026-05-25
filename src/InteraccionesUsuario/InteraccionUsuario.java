@@ -9,8 +9,8 @@ public abstract class InteraccionUsuario
         protected Usuario receptor;
 
         public InteraccionUsuario(
-                Usuario emisor,
-                Usuario receptor) {
+                String emisor,
+                String receptor) {
 
             super(emisor);
 

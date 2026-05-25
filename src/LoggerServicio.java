@@ -5,7 +5,7 @@ import Notificador.Registro;
 import java.util.ArrayList;
 
 public class LoggerServicio implements Notificador {
-    private ArrayList<Object> registros;
+    private final ArrayList<Object> registros;
     public LoggerServicio() {
         registros = new ArrayList<>();
         }

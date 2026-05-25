@@ -2,7 +2,7 @@ package Notificador;
 
 public class Registro {
 
-    private String accion;
+    private final String accion;
 
     public Registro(String accion) {
 

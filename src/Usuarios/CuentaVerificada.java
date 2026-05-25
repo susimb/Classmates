@@ -1,8 +1,8 @@
 package Usuarios;
 
 public class CuentaVerificada extends CreadorContenidoUsuario {
-    private String insignia;
-    private boolean verificada;
+    private final String insignia;
+    private final boolean verificada;
 
     public CuentaVerificada(String username,
                             String correo,
